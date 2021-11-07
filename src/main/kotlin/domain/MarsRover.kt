@@ -2,7 +2,7 @@ package domain
 
 class MarsRover(var coordinate: Coordinate, var facing: Direction) {
     init {
-        if (coordinate.x < 0 || coordinate.y < 0) throw IllegalArgumentException("Rover's coordinates can not be negative!")
+        if (coordinate.x < 0 || coordinate.y < 0) throw IllegalArgumentException("Rover's coordinates must be positive number!")
     }
 
     fun executeCommand(orientations: List<Command>, plateau: Plateau) {

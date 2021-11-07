@@ -4,7 +4,7 @@ import kotlin.test.assertEquals
 
 internal class MarsRoverTest {
 
-    private val plateau: Plateau = Plateau(5, 5)
+    private val plateau: Plateau = Plateau(Coordinate(5, 5))
 
     @Test
     fun `mars rover execute commands initial position at coordinate x=1 and y=2 and facing to N should be final position x=1, y=3 and facing to N`() {

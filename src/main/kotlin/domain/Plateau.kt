@@ -1,7 +1,7 @@
 package domain
 
-data class Plateau(var x: Int = 0, var y: Int = 0) {
+data class Plateau(val coordinate: Coordinate) {
     init {
-        if (x < 0 || y < 0) throw IllegalArgumentException("domain.Plateau's dimension values can not be negative!")
+        if (coordinate.x < 0 || coordinate.y < 0) throw IllegalArgumentException("Plateau's dimension values must be positive number!")
     }
 }
