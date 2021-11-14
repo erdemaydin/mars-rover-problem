@@ -7,7 +7,7 @@ internal class MarsRoverTest {
     private val plateau: Plateau = Plateau(Coordinate(5, 5))
 
     @Test
-    fun `mars rover execute commands initial position at coordinate x=1 and y=2 and facing to N should be final position x=1, y=3 and facing to N`() {
+    fun `mars rover execute commands LMLMLMLMM and initial position at coordinate x=1 and y=2 and facing to N should be final position x=1, y=3 and facing to N`() {
         val coordinate1 = Coordinate(1, 2)
         val command: List<Command> = listOf(Command.L, Command.M, Command.L, Command.M,
             Command.L, Command.M, Command.L, Command.M, Command.M)
@@ -21,7 +21,7 @@ internal class MarsRoverTest {
     }
 
     @Test
-    fun `mars rover execute commands initial position at coordinate x=3 and y=3 and facing to E should be final position x=5, y=1 and facing to E`() {
+    fun `mars rover execute commands MMRMMRMRRM and initial position at coordinate x=3 and y=3 and facing to E should be final position x=5, y=1 and facing to E`() {
         val coordinate = Coordinate(3, 3)
         val command: List<Command> = listOf(Command.M, Command.M, Command.R, Command.M,
             Command.M, Command.R, Command.M, Command.R, Command.R, Command.M)
