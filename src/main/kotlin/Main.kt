@@ -7,7 +7,7 @@ import util.toIntOrThrowException
 
 fun main() {
     val (x, y) = readLine()!!.split(' ').map(::toIntOrThrowException)
-    val plateau = Plateau(Coordinate(x, y))
+
     val (rover1x, rover1y, rover1Direction) = readLine()!!.split(' ')
     val marsRover1 = MarsRover(
         Coordinate(toIntOrThrowException(rover1x), toIntOrThrowException(rover1y)),
@@ -23,8 +23,7 @@ fun main() {
     )
 
     val command2: List<Command> = readLine()!!.toList().map(Command::charToCommand).toList()
-
-
+    val plateau = Plateau(Coordinate(x, y), listOf(marsRover1, marsRover2))
     marsRover1.executeCommand(command1, plateau)
     println(marsRover1)
     marsRover2.executeCommand(command2, plateau)

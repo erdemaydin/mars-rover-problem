@@ -1,10 +1,14 @@
-import domain.*
+
+import domain.Command
+import domain.Coordinate
+import domain.Direction
+import domain.MarsRover
+import domain.Plateau
+
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 internal class MarsRoverTest {
-
-    private val plateau: Plateau = Plateau(Coordinate(5, 5))
 
     @Test
     fun `mars rover execute commands LMLMLMLMM and initial position at coordinate x=1 and y=2 and facing to N should be final position x=1, y=3 and facing to N`() {
@@ -13,8 +17,10 @@ internal class MarsRoverTest {
             Command.L, Command.M, Command.L, Command.M, Command.M)
 
         val marsRover = MarsRover(coordinate1, Direction.N)
+        val plateau = Plateau(Coordinate(5, 5), listOf(marsRover))
         marsRover.executeCommand(command, plateau)
         println("$marsRover")
+
         assertEquals(1, marsRover.coordinate.x)
         assertEquals(3, marsRover.coordinate.y)
         assertEquals(Direction.N, marsRover.facing)
@@ -25,7 +31,9 @@ internal class MarsRoverTest {
         val coordinate = Coordinate(3, 3)
         val command: List<Command> = listOf(Command.M, Command.M, Command.R, Command.M,
             Command.M, Command.R, Command.M, Command.R, Command.R, Command.M)
+
         val marsRover = MarsRover(coordinate, Direction.E)
+        val plateau = Plateau(Coordinate(5, 5), listOf(marsRover))
         marsRover.executeCommand(command, plateau)
         println("$marsRover")
 

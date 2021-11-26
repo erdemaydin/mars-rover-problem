@@ -9,7 +9,9 @@ class MarsRover(var coordinate: Coordinate, var facing: Direction) {
     fun executeCommand(orientations: List<Command>, plateau: Plateau) =
         orientations.forEach { it.execute(this, plateau) }
 
-    fun moveForward() = facing.moveForward(coordinate)
+    fun moveForward() {
+        facing.moveForward(coordinate)
+    }
 
     fun turnToRight() {
         facing = facing.turnToRight()
@@ -19,6 +21,12 @@ class MarsRover(var coordinate: Coordinate, var facing: Direction) {
         facing = facing.turnToLeft()
     }
 
-    override fun toString(): String = "${coordinate.x} ${coordinate.y} $facing"
+    fun getNextCoordinate(): Coordinate {
+        var nextCoordinate = Coordinate(coordinate.x, coordinate.y)
+        facing.moveForward(nextCoordinate)
+        return nextCoordinate
+    }
+
+    override fun toString() = "coordinate x: ${coordinate.x} coordinate y: ${coordinate.y} facing : $facing"
 }
 
